@@ -1,0 +1,40 @@
+//6. Crear una función que devuelva la diferencia que hay entre el valor más chico de un arreglo y su valor más grande. 
+Algoritmo ejercicio_la_diferencia_entre_el_mayor_y_el_menor_de_un_vector
+	Definir vector_numerico, tam_vector, i, num_menor, num_mayor Como Entero; tam_vector = 10; Dimension vector_numerico[tam_vector]
+	///Rellenando el vector 
+	Para i = 0 Hasta tam_vector-1 Con Paso 1 Hacer
+		vector_numerico[i] = azar(9)
+	FinPara
+	///Escribiendo el vector 
+	Para i = 0 Hasta tam_vector-1 Con Paso 1 Hacer
+		Escribir Sin Saltar vector_numerico[i], " "
+	FinPara
+	Escribir ""
+	num_menor = obtener_numero_menor(vector_numerico, tam_vector)
+	num_mayor = obtener_numero_mayor(vector_numerico, tam_vector)
+	Escribir "El número menor del vector es ", num_menor
+	Escribir "El número mayor del vector es ", num_mayor
+	Escribir "La diferencia es ",num_mayor-num_menor
+FinAlgoritmo
+///Función para calcular el número menor de un vector
+Funcion Num_menor <- obtener_numero_menor (v,t)
+	Definir i, Num_menor, tem_menor Como Entero
+	i = 0; tem_menor = v[0]
+	Para i = 0 Hasta t-1 Con Paso 1 Hacer
+		si (v[i] < tem_menor)Entonces
+			tem_menor = v[i]
+		FinSi
+	FinPara
+	Num_menor = tem_menor
+FinFuncion
+///Función para calcular el número mayor de un vector
+Funcion Num_mayor <- obtener_numero_mayor (v,t)
+	Definir i, Num_mayor, tem_mayor Como Entero
+	i = 0; tem_mayor = v[0]
+	Para i = 0 Hasta t-1 Con Paso 1 Hacer
+		si (v[i] > tem_mayor)Entonces
+			tem_mayor = v[i]
+		FinSi
+	FinPara
+	Num_mayor = tem_mayor
+FinFuncion

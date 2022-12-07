@@ -1,0 +1,66 @@
+//10. Crear una matriz de orden n * m (donde n y m son valores ingresados por el usuario), 
+//llenarla con números aleatorios entre 1 y 100 y mostrar su traspuesta.  
+//¿Qué es una Matriz Traspuesta?
+//La matriz traspuesta de una matriz A se denota por B y se obtiene cambiando sus filas por columnas (o viceversa). 
+//Matriz A
+//1 0 4
+//0 5 0
+//6 0 -9
+//Matriz B
+//1 0 6 
+//0 5 0
+//4 0 -9
+//Ejemplo: Obsérvese, por ejemplo, que la primera fila de la matriz A es (1,0,4). 
+//Esta fila es la primera columna de su matriz traspuesta.  
+Algoritmo Matriz_traspuesta
+	Definir matriz_original, tam_matriz Como Entero //Define por igual por filas y columnas
+	Escribir "Ingrese el tamaño de la matriz"
+	leer tam_matriz
+	Dimension matriz_original[tam_matriz, tam_matriz]
+	rellenar_matriz(matriz_original, tam_matriz)
+FinAlgoritmo
+///Subprograma para rellenar y escribir la matriz original
+SubProceso rellenar_matriz(matriz Por Referencia, tam_matriz Por Referencia)
+	Definir i, j Como Entero
+	Para i = 0 Hasta tam_matriz-1 Con Paso  1 Hacer
+		Para j = 0 Hasta tam_matriz-1 Con Paso 1 Hacer
+			Escribir "Ingrese un número en la fila ",i," columna ",j
+			Leer matriz[i,j]
+		FinPara
+	FinPara
+	//Escribir la matriz
+	Limpiar Pantalla
+	Escribir "La matriz es: "
+	Escribir ""
+	Para i = 0 Hasta tam_matriz-1 Con Paso 1 Hacer
+		Para j = 0 Hasta tam_matriz-1 Con Paso 1 Hacer
+			Escribir Sin Saltar matriz[i, j], " "
+		Fin Para
+		Escribir ""
+	Fin Para
+	matriz_transformacion(matriz, tam_matriz)
+FinSubProceso
+///Subprograma para hacer la matriz traspuesta
+SubProceso matriz_transformacion (matriz Por Referencia, tam_matriz Por Referencia)
+	Definir matriz_tras, i,j Como Entero
+	Dimension matriz_tras[tam_matriz, tam_matriz]
+	Para i = 0 Hasta tam_matriz-1 Con Paso 1 Hacer
+		Para j = 0 Hasta tam_matriz-1 Con Paso 1 Hacer
+			matriz_tras[i,j] = matriz[j,i]
+		Fin Para
+	Fin Para
+	//Escribir la matriz
+	Limpiar Pantalla
+	Escribir ""
+	Escribir "La matriz transpuestas es: "
+	Escribir ""
+	Para i = 0 Hasta tam_matriz-1 Con Paso 1 Hacer
+		Para j = 0 Hasta tam_matriz-1 Con Paso 1 Hacer
+			Escribir Sin Saltar matriz_tras[i, j], " "
+		Fin Para
+		Escribir ""
+	Fin Para
+FinSubProceso
+	
+	
+	

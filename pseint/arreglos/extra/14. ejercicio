@@ -1,0 +1,45 @@
+//14. Realizar un programa que permita visualizar el resultado del producto de una matriz de enteros de 3x3 por un vector de 3 elementos. Los valores de la matriz y el vector pueden inicializarse evitando así el ingreso de datos por teclado. 
+//Para conocer más acerca de cómo se realiza la multiplicación entre matrices consultar el siguiente link:  
+//https://es.wikibooks.org/wiki/%C3%81lgebra_Lineal/Matriz_por_vector 
+Algoritmo ejercicio_multiplicar_vector_por_matriz
+	//Definimos vectores y matrices
+	Definir vector_numerico,matriz_numerica,f,c,i,j Como Entero
+	//Difinimos tamaño de matriz y vector; el tamaño de columnas del vector y de filas de la matriz serán iguales para poder resolverlo
+	Escribir "Ingrese la cantidad de filas de la matriz que será también para las columnas del vector"
+	Leer f
+	Escribir "Ingrese la cantidad de columnas de la matriz"
+	Leer c
+	Dimension matriz_numerica[f,c]
+	Dimension vector_numerico[f]
+	///Inicializamos la matriz
+	Escribir "Inicializamos la matriz"
+	Para i = 0 Hasta f-1 Con Paso 1 Hacer
+		Para j = 0 Hasta c-1 Con Paso 1 Hacer
+			matriz_numerica[i,j] = Aleatorio(1,9)
+			Escribir Sin Saltar matriz_numerica[i,j]," "
+		FinPara
+		Escribir ""
+	FinPara
+	///Inicializamos el vector
+	Escribir "Inicializamos el vector"
+	Para i = 0 Hasta f-1 Con Paso 1 Hacer
+		vector_numerico[i] = Aleatorio(1,9)
+		Escribir Sin Saltar vector_numerico[i], " " 
+	FinPara
+	Escribir ""
+	Escribir "El producto del vector y la matriz es: ",cal_vector_y_matriz(matriz_numerica,vector_numerico, f, c)
+FinAlgoritmo
+///Suproceso para multiplicar la matriz y el vector
+Funcion producto <- cal_vector_y_matriz (m Por Referencia, v Por Referencia, f Por Referencia, c Por Referencia)
+	Definir producto,i,j,contador Como Entero
+	producto = 0; contador = 0
+	Para i = 0 Hasta f-1 Con Paso 1 Hacer
+		Para j = 0 Hasta c-1 Con Paso 1 Hacer
+			si (contador == i) Entonces
+				producto = producto + (m[i,j] * v[i])
+			FinSi
+		Fin Para
+		contador = contador + 1
+	Fin Para
+FinFuncion
+

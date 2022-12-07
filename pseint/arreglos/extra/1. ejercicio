@@ -1,0 +1,23 @@
+//1. Realizar un programa que rellene dos vectores al mismo tiempo, con 5 valores aleatorios y los 
+//muestre por pantalla.
+Algoritmo ejercicio_rellene_los_vectores
+	Definir vector1,vector2, size_vector, i, j Como Entero
+	size_vector = Aleatorio(10,30)
+	Dimension vector1[size_vector]
+	Dimension vector2[size_vector]
+	
+	Para i = 0 Hasta size_vector-1 Con Paso 1 Hacer
+		vector1[i] = Aleatorio(1,9)
+		Escribir Sin Saltar vector1[i], " " 
+	FinPara
+	Escribir ""
+	Escribir "---"
+	Escribir ""
+	Para i = 0 Hasta size_vector-1 Con Paso 1 Hacer
+		vector2[i] = Aleatorio(1,9)
+		Escribir Sin Saltar vector2[i], " " 
+	FinPara
+	Escribir ""
+	Escribir "---"
+	Escribir ""
+FinAlgoritmo

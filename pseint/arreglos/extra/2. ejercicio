@@ -1,0 +1,16 @@
+//2. Realizar un programa que rellene un vector de tamaño N, con valores ingresados por el 
+//usuario y muestre por pantalla el promedio de la suma de todos los valores ingresados
+Algoritmo realiza_el_promedio_de_un_vector
+	Definir size_vector, vector, suma, promedio, i Como Real
+	size_vector = Aleatorio(10, 30)
+	Dimension vector[size_vector]
+	suma = 0
+	Para i = 0 Hasta size_vector-1 Con Paso 1 Hacer
+		vector[i] = Aleatorio(1,100)
+		Escribir Sin Saltar vector[i], " "
+		suma = suma + vector[i]
+	FinPara
+	Escribir ""
+	promedio = suma/size_vector
+	Escribir "El promedio es: ", promedio
+FinAlgoritmo

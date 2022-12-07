@@ -1,0 +1,20 @@
+Algoritmo ejercicio_dibuja_una_matriz
+	Definir matriz, i , j Como Entero
+	Dimension matriz[5 , 15]
+	para i = 0 Hasta 5-1 Hacer
+		para j = 0 hasta 15-1 Hacer
+			si (i == 0) o (j == 0) o (i == 5-1) o (j == 15-1) Entonces
+				matriz[i, j] = 1
+			SiNo
+				matriz[i , j] = 0
+			FinSi
+			
+		FinPara
+	FinPara
+	para i =0 Hasta  5-1 Hacer
+		para j = 0 Hasta  15-1 Hacer
+			Escribir matriz[i , j], " " Sin Saltar
+		FinPara
+		Escribir " "
+	FinPara
+FinAlgoritmo

@@ -1,0 +1,27 @@
+//7. Programe una función recursiva que calcule la suma de un arreglo de números enteros.  
+Algoritmo ejercicio_suma_numeros_enteros_de_vector_con_recursion
+	Definir vector_numeros, tam_vector Como Entero
+	Escribir "Ingrese el tamaño del vector"
+	leer tam_vector
+	Dimension vector_numeros[tam_vector]
+	rellena_vector(vector_numeros, tam_vector)
+	Escribir ""
+	Escribir "La suma de todos los valores es: ", suma_recursion(vector_numeros, tam_vector)
+FinAlgoritmo
+///Subprograma para rellenar y escribir el vector_numeros
+SubProceso rellena_vector (vector, tam_vector)
+	Definir i Como Entero
+	Para i = 0 Hasta tam_vector-1 Con Paso 1 Hacer
+		vector[i] = Azar(9)
+		Escribir Sin Saltar vector[i], " "
+	FinPara
+FinSubProceso
+///Función recursiva para sumar los enteros de un vector
+Funcion suma <- suma_recursion (vector, tam_vector)
+	si (tam_vector = 1) Entonces
+		suma = vector[0]
+	SiNo
+		suma = vector[tam_vector-1] + suma_recursion(vector, tam_vector-1)
+	FinSi
+FinFuncion
+	

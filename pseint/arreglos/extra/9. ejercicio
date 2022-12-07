@@ -1,0 +1,31 @@
+//9. Realizar un programa que rellene de números aleatorios una matriz a través de un subprograma y generar otro subprograma que muestre por pantalla la matriz final.
+Algoritmo ejercicio_rellena_una_matriz
+	Definir f, c Como Entero
+	Escribir "Ingrese el número de filas"
+	Leer f
+	Escribir "Ingrese el número de columnas"
+	leer c
+	rellena_matriz(f,c)
+FinAlgoritmo
+///Subprograma para rellenar una matriz de números aleatorios
+SubProceso rellena_matriz (f Por Referencia, c Por Referencia)
+	Definir matriz_num,i,j Como Entero
+	Dimension matriz_num[f,c]
+	Para i = 0 Hasta f-1 Con Paso 1 Hacer
+		Para j = 0 Hasta c-1 Con Paso 1 Hacer
+			matriz_num[i,j] = Aleatorio(1,9)
+		FinPara
+	FinPara
+	escribir_matriz(matriz_num, f, c)
+FinSubProceso
+///Subprograma para escribir una matriz de números aleatorios
+SubProceso escribir_matriz(matriz Por Referencia, f Por Referencia, c Por Referencia)
+	Definir i, j Como Entero
+	Para i = 0 Hasta f-1 Con Paso 1 Hacer
+		Para j = 0 Hasta c-1 Con Paso 1 Hacer
+			Escribir Sin Saltar matriz[i,j], " "
+		FinPara
+		Escribir ""
+	FinPara
+FinSubProceso
+	

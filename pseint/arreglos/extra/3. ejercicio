@@ -1,0 +1,18 @@
+//3. Crear dos vectores que tengan el mismo tamaño (el tamaño se pedirá por teclado) y 
+//almacenar en uno de ellos nombres de personas como cadenas. En el segundo vector se 
+//debe almacenar la longitud de cada uno de los nombres (para ello puedes usar la función 
+//Longitud() de PseInt). Mostrar por pantalla cada uno de los nombres junto con su longitud.
+Algoritmo ejercicio_dos_vectores
+	Definir vector_personas Como Caracter
+	Definir vector_longitud_de_nombre, size_vector, i Como Entero
+	Escribir "Ingrese el tamaño de ambos vectores"
+	leer size_vector
+	Dimension vector_personas[size_vector]
+	Dimension vector_longitud_de_nombre[size_vector]
+	///Relleno el vector personas y lo imprimo con la cantidad de carácteres de cada palabra
+	Para i = 0 Hasta size_vector-1 Con Paso 1 Hacer
+		leer vector_personas[i]
+		vector_longitud_de_nombre[i] = Longitud(vector_personas[i])
+		Escribir "El nombre ", vector_personas[i], " tiene ", vector_longitud_de_nombre[i], " carácteres"
+	FinPara
+FinAlgoritmo

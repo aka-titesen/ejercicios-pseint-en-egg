@@ -1,0 +1,36 @@
+//12. Realizar un programa que calcule la multiplicación de dos matrices de enteros de 3x3. Inicialice las matrices para evitar el ingreso de datos por teclado.  
+Algoritmo ejercicio_calcula_el_producto_entre_dos_matrices
+	Definir matriz1, matriz2, tam_matriz, i, j Como Entero
+	Escribir "Ingrese el tamaño de ambos matrices"
+	leer tam_matriz
+	Dimension matriz1[tam_matriz, tam_matriz]; Dimension matriz2[tam_matriz, tam_matriz]
+	Escribir ""
+	//Inicialización de la primera matriz
+	Para i = 0 Hasta tam_matriz-1 Con Paso 1 Hacer
+		Para j = 0 Hasta tam_matriz-1 Con Paso 1 Hacer
+			matriz1[i,j] = Aleatorio(1,9)
+			Escribir Sin Saltar matriz1[i,j], " "
+		FinPara
+		Escribir ""
+	FinPara
+	Escribir ""
+	//Inicialización de la segunda matriz
+	Para i = 0 Hasta tam_matriz-1 Con Paso 1 Hacer
+		Para j = 0 Hasta tam_matriz-1 Con Paso 1 Hacer
+			matriz2[i,j] = Aleatorio(1,9)
+			Escribir Sin Saltar matriz2[i,j], " "
+		FinPara
+		Escribir ""
+	FinPara
+	Escribir ""
+	Escribir "El producto de ambas matrices es: ", calcular_producto(matriz1, matriz2, tam_matriz)
+FinAlgoritmo
+///Subprograma para calcular el producto de dos matrices 
+Funcion producto <- calcular_producto (m1 Por Referencia, m2 Por Referencia, t_m Por Referencia)
+	Definir producto, i, j Como Entero; producto = 0
+	Para i = 0 Hasta t_m-1 Con Paso 1 Hacer
+		Para j = 0 Hasta t_m-1 Con Paso 1 Hacer
+			producto = producto + (m1[i,j] * m2[i,j])
+		FinPara
+	FinPara
+FinFuncion

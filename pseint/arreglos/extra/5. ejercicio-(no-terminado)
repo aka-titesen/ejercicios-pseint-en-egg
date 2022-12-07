@@ -1,0 +1,45 @@
+Algoritmo ejercicio_ordenamiento_por_insercion
+	Definir txt, vector_txt  Como Caracter
+	Definir tam_vector Como Entero; tam_vector = 20
+	Definir i Como Entero
+	Dimension vector_txt[tam_vector]
+	Escribir "Ingrese una frase para agregar a un vector"
+	leer txt
+	///Introduce la frase en el vector
+	Para i = 0 Hasta tam_vector-1 Con Paso 1 hacer
+			vector_txt[i] = Subcadena(txt,i,i)
+	FinPara
+	///Escribir el vector con la frase 
+	Limpiar Pantalla
+	Escribir "El vector y sus índices son: "
+	Para i = 0 Hasta tam_vector-1 Con Paso 1 Hacer
+		Escribir Sin Saltar vector_txt[i], " "
+	FinPara
+	Escribir ""
+	///Escribir los índices en pantalla
+	Para i = 0 Hasta tam_vector-1 Con Paso 1 Hacer
+		Escribir Sin Saltar i, " "
+	FinPara
+	Escribir ""
+	encontrar_espacio_cercano(vector_txt, tam_vector)
+FinAlgoritmo
+///Subprograma para encontrar el espacio mas cercano sea a la izquierda o derecha a partir de la posición ingresado por el usuario
+SubProceso encontrar_espacio_cercano (vector_txt Por Referencia, tam_vector Por Referencia)
+	//Definiciones de variables
+	Definir posicion_ingresada,contador_derecha,contador_izquierda,i Como Entero
+	Definir busqueda_derecha, busqueda_izquierda Como Logico
+	Escribir "Ingrese la posición donde agregará un caracter"
+	leer posicion_ingresada
+	//Inicialización de variables
+	busqueda_derecha = Falso; contador_derecha = 0
+	Para i = posicion_ingresada Hasta tam_vector-1 Con Paso 1 Hacer
+		si (busqueda_derecha == Falso)
+			si ((vector_txt[i] <> "" ) O (vector_txt[i] <> " ")) Entonces
+				contador_derecha = contador_derecha + 1
+			SiNo
+				busqueda_derecha = Verdadero
+			FinSi
+		FinSi
+	FinPara
+	Escribir "Desde la posición ingresada por el usuario ",posicion_ingresada, ", hay una distancia de, ",contador_derecha," pasos para el primer espacio en la derecha"
+FinSubProceso

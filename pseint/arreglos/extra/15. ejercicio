@@ -1,0 +1,112 @@
+//Una empresa de venta de productos por correo desea realizar una estadística de las ventas realizadas de cada uno de sus productos a lo largo de una semana.
+//Distribuya luego 5 productos en los 5 días hábiles de la semana. Se desea conocer:
+//a) Total de ventas por cada día de la semana. b) Total de ventas de cada producto a lo largo de la semana. 
+//c) El producto más vendido en cada semana. d) El nombre, el día de la semana y la cantidad del producto más vendido. 
+Algoritmo crear_tabla_de_productos
+	Definir monto,i,j,f,c Como Entero; f = 7; c = 6
+	Definir vector_columnas,vector_filas Como Caracter
+	Dimension vector_columnas[7]; Dimension vector_filas[8]
+	//Definiendo columnas
+	vector_columnas[0] = "     "
+	vector_columnas[1] = "Lunes |"
+	vector_columnas[2] = "Martes |"
+	vector_columnas[3] = "Miercoles |"
+	vector_columnas[4] = "Jueves |"
+	vector_columnas[5] = "Viernes |"
+	vector_columnas[6] = "Total producto |"
+	//Escriendo columnas
+	Para i = 0 Hasta 7-1 Hacer
+		Escribir Sin Saltar vector_columnas[i]," "
+	FinPara
+	//Definiendo filas
+	vector_filas[0] = "     "
+	vector_filas[1] = "P1  |" //Producto 1
+	vector_filas[2] = "P2  |" //Producto 2
+	vector_filas[3] = "P3  |" //Producto 3
+	vector_filas[4] = "P4  |" //Producto 4
+	vector_filas[5] = "P5  |" //Producto 5
+	vector_filas[6] = "TS  |" //Total semana
+	vector_filas[7] = "PV  |" //Producto más vendido
+	//Escribiendo filas
+	Para i = 0 Hasta 8-1 Hacer
+		Escribir vector_filas[i]
+	FinPara
+	Definir matriz_monto Como Real
+	Dimension matriz_monto[8,7]
+	///Llenar la matriz
+	//Tabla
+	Escribir ""
+	Escribir "************  Tabla con valores  ************"
+	Para i = 0 Hasta f-1 Hacer
+		Para j = 0 Hasta c-1 Hacer
+			si ((j < c-1 Y i < f-1 Y i <> 5)) Entonces
+				matriz_monto[i,j] = Aleatorio(10,20)
+			SiNo
+				matriz_monto[i,j] = 0
+			FinSi
+		FinPara
+	FinPara
+	///Calculos de las ventas del día
+	operacionesConTabla_suma_por_columna(matriz_monto,f,c)
+	operacionesConTabla_suma_por_fila(matriz_monto,f,c)
+	///Escribir matriz
+	Para i = 0 Hasta f-1 Hacer
+		Para j = 0 Hasta c-1 Hacer
+			Escribir Sin Saltar matriz_monto[i,j],"   |   "
+		FinPara
+		Escribir ""
+	FinPara
+FinAlgoritmo
+///Subprograma para hacer los calculos
+///Subprograma para calcular las ventas del día
+SubProceso operacionesConTabla_suma_por_columna (matriz Por Referencia, f Por Referencia, c Por Referencia)
+	Definir i,j,contador,suma Como Entero;contador = 0;suma = 0
+	///Calculas por dia
+	Para j = 0 Hasta c-1 Hacer
+		suma = 0
+		Para i = 0 Hasta f-1 Hacer
+			si ((j == contador) Y (i < f-1 Y i <> 5))
+				suma = suma + matriz[i,j]
+			FinSi
+			si ((j == contador) Y (i == 5))
+				matriz[i,j] = suma
+			FinSi
+		FinPara
+		contador = contador + 1
+	FinPara
+FinSubProceso
+///Subprograma para calcular las ventas de cada producto en la semana
+SubProceso operacionesConTabla_suma_por_fila (matriz Por Referencia, f Por Referencia, c Por Referencia)
+	Definir i,j,contador,suma,k Como Entero;contador = 0;suma = 0
+	Definir vector_filas Como Entero; Dimension vector_filas[f]
+	//Suma cada fila de productos y coloca los valores en la última columna
+	Para i = 0 Hasta f-1 Hacer
+		Para j = 0 Hasta c-1 Hacer
+			Si ((i == contador) Y (j < c-1)) 
+				suma = suma + matriz[i,j]
+				vector_filas[i] = suma
+			Fin Si
+			si ((i == contador) Y (j == c-1) Y (i <> f-1))
+				matriz[i,j] = suma
+			FinSi
+		Fin Para
+		contador = contador + 1
+	Fin Para
+	//Proceso para encontrar el producto más vendido de la semana
+	Definir elProductoMasVendido Como Entero; elProductoMasVendido = vector_filas[0]
+	contador = 0
+	Para  i = 0 Hasta 5-1 Hacer
+		Si (vector_filas[i] > elProductoMasVendido) Entonces
+			elProductoMasVendido = vector_filas[i]
+			Segun (i) Hacer
+				0: Escribir "El producto màs vendido fue el primero"
+				1: Escribir "El producto màs vendido fue el segundo"
+				2: Escribir "El producto màs vendido fue el tercero"
+				3: Escribir "El producto màs vendido fue el cuarto"
+				4: Escribir "El producto màs vendido fue el quinto"
+			FinSegun
+		FinSi
+	FinPara
+	
+FinSubProceso
+	

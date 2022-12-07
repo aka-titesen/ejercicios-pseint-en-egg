@@ -1,0 +1,41 @@
+//13. Crear una matriz que contenga 3 columnas y la cantidad filas que decida el usuario. 
+//Las dos primeras columnas contendrán valores enteros ingresados por el usuario, 
+//y en la 3 columna se deberá almacenar el resultado de sumar el número de la primera, 
+//y segunda columna. Mostrar la matriz de la siguiente forma: 
+//3 + 5 = 8
+//4 + 3 = 7
+//1 + 4 = 5
+Algoritmo ejercicio_suma_y_resultado_en_matrices
+	Definir matriz_suma, suma, f, i, j Como Entero; suma = 0
+	Definir vector_suma Como Entero
+	Escribir "Ingrese el cantidad de filas de la matriz"
+	leer f
+	Dimension matriz_suma[f,3]
+	Limpiar Pantalla
+	//Rellena la matriz y calcula
+	Para i = 0 Hasta f-1 Con Paso 1 Hacer
+		suma = 0
+		Para j = 0 Hasta 3-1 Con Paso 1 Hacer
+			si (j <= 1) Entonces
+				leer matriz_suma[i,j]
+				suma = suma + matriz_suma[i,j]
+			SiNo
+				matriz_suma[i,j] = suma
+			FinSi
+		FinPara
+	FinPara
+	//Escribir matriz con el resultado de cada columna
+	Para i = 0 Hasta f-1 Con Paso 1 Hacer
+		Para j = 0 Hasta 3-1 Con Paso 1 Hacer
+			si (j == 0) Entonces
+				Escribir Sin Saltar matriz_suma[i,j], " + "
+			SiNo
+				si (j == 1)Entonces
+					Escribir Sin Saltar matriz_suma[i,j]
+				SiNo
+					Escribir " = ", matriz_suma[i,j]
+				FinSi
+			FinSi
+		FinPara
+	FinPara
+FinAlgoritmo
